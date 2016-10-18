@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_theme_preference_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="drivequickstart.example.com.myapplication.ThemePreferenceActivity">
+
+
+    <RelativeLayout
+        android:layout_height="200dp"
+        android:layout_width="160dp"
+        android:id="@+id/theme_coffee_layout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <ImageButton
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:src="@drawable/theme_coffee_main"
+            android:scaleType="centerInside"
+            android:id="@+id/coffee_imageButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="咖啡"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="24sp"
+            android:layout_marginTop="36dp"
+            android:id="@+id/coffee_text_view"
+            android:textStyle="normal|bold" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete_icon"
+            android:id="@+id/theme_coffee_use_imageButton"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/coffee_text_view"
+            android:layout_alignEnd="@+id/coffee_text_view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="200dp"
+        android:layout_width="160dp"
+        android:id="@+id/theme_beach_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+
+        <ImageButton
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:src="@drawable/theme_beach_main"
+            android:scaleType="centerInside"
+            android:id="@+id/beach_imageButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="海邊"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="24sp"
+            android:layout_marginTop="36dp"
+            android:id="@+id/beach_text_view"
+            android:textStyle="normal|bold" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete_icon"
+            android:id="@+id/theme_beach_use_imageButton"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/beach_text_view"
+            android:layout_alignEnd="@+id/beach_text_view" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_height="200dp"
+        android:layout_width="160dp"
+        android:id="@+id/theme_party_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:src="@drawable/theme_party_main"
+            android:scaleType="centerInside"
+            android:id="@+id/party_imageButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="宴會"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="24sp"
+            android:layout_marginTop="36dp"
+            android:id="@+id/party_text_view"
+            android:textStyle="normal|bold" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete_icon"
+            android:id="@+id/theme_party_use_imageButton"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/party_text_view"
+            android:layout_alignEnd="@+id/party_text_view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/theme_outdoor_layout"
+        android:layout_height="200dp"
+        android:layout_width="160dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:src="@drawable/theme_outdoor_main"
+            android:scaleType="centerInside"
+            android:id="@+id/outdoor_imageButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="戶外"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="24sp"
+            android:layout_marginTop="36dp"
+            android:id="@+id/outdoor_text_view"
+            android:textStyle="normal|bold" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete_icon"
+            android:id="@+id/theme_outdoor_use_imageButton"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/outdoor_text_view"
+            android:layout_alignEnd="@+id/outdoor_text_view" />
+    </RelativeLayout>
+
+</RelativeLayout>

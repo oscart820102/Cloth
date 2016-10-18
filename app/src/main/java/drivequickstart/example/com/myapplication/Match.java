@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Gallery;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 public class Match extends Activity{
     /** Called when the activity is first created. */
@@ -13,10 +14,14 @@ public class Match extends Activity{
     private galleryAdapter2 adapter2;
     private galleryAdapter3 adapter3;
     private galleryAdapter4 adapter4;
+    private LinearLayout layout;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        layout = (LinearLayout) findViewById(R.id.activity_match_layout);
+        layout.setBackgroundResource(new getPref().getThemeMatchResID(this));
+
         Gallery gallery=(Gallery)findViewById(R.id.gallery);
         adapter=new galleryAdapter(this);
         gallery.setAdapter(adapter);

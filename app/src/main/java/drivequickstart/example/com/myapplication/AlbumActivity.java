@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,12 +43,14 @@ public class AlbumActivity extends AppCompatActivity {
     private ImageRecyclerViewAdapter adapter;
     private MyDAOdb daOdb;
     private Uri photoUri;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
-
+        layout = (RelativeLayout) findViewById(R.id.activity_album_layout);
+        layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
         //SDK23以上的手機要RunTime Permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -80,6 +83,7 @@ public class AlbumActivity extends AppCompatActivity {
         addImageButton = (ImageButton) findViewById(R.id.album_add_imagebutton);
         deleteImageButton = (ImageButton) findViewById(R.id.album_delete_imagebutton);
         recyclerView = (RecyclerView) findViewById(R.id.album_recycler_view);
+        layout = (RelativeLayout) findViewById(R.id.activity_album_layout);
     }
 
     private void setListeners() {

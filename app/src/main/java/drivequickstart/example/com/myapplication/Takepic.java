@@ -2,8 +2,6 @@ package drivequickstart.example.com.myapplication;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -19,7 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,8 +25,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 /**
@@ -44,11 +40,15 @@ public class Takepic extends Activity {
     private static final int REQUEST_CAMERA_PERMISSION = 2015;
     private Uri photoUri;
     private MyDAOdb daOdb;
+    private Button goToMatchButton;
+    private LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_takepic);
+        layout = (LinearLayout) findViewById(R.id.activity_takepic_layout);
+        layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
 
         //SDK23以上的手機要RunTime Permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -68,7 +68,7 @@ public class Takepic extends Activity {
 
         mImg = (ImageView) findViewById(R.id.img);
         Button mCamera = (Button) findViewById(R.id.camera);
-        Button mPhoto = (Button) findViewById(R.id.photo);
+        goToMatchButton = (Button) findViewById(R.id.takepic_match_button);
 
         activityTakePhoto();
 
@@ -83,12 +83,12 @@ public class Takepic extends Activity {
             }
         });
 
-        mPhoto.setOnClickListener(new Button.OnClickListener() {
+        goToMatchButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //開啟相簿相片集，須由startActivityForResult且帶入requestCode進行呼叫，原因
-                activityGallery();
-
+                Intent intent = new Intent(Takepic.this,Match.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

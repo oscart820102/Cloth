@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/a9"
+    android:id="@+id/activity_takepic_layout"
     >
 
     <ImageView
@@ -23,15 +23,15 @@
             android:id="@+id/camera"
             android:layout_width="161dp"
             android:layout_height="81dp"
-            android:text="開啟相機"
+            android:text="繼續拍攝"
             android:layout_weight="0.5"
             android:layout_gravity="center_vertical" />
 
         <Button
-            android:id="@+id/photo"
+            android:id="@+id/takepic_match_button"
             android:layout_width="161dp"
             android:layout_height="81dp"
-            android:text="開啟相簿"
+            android:text="進入搭配"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.5" />
     </LinearLayout>
