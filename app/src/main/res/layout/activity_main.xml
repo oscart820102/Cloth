@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@mipmap/a9"
+    android:orientation="vertical" >
+
+    <Gallery
+        android:id="@+id/gallery"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="100dp"
+
+        />
+
+    <Gallery
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:id="@+id/gallery2"
+        />
+    <Gallery
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:id="@+id/gallery3"
+         />
+
+    <Gallery
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:id="@+id/gallery4"
+         />
+
+</LinearLayout>

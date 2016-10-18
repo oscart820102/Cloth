@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity_camera1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:text="拍照"
+            android:id="@+id/button"
+            android:onClick="onGet"
+            android:layout_weight="0.16" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView1"
+            android:scaleType="centerInside"
+            android:longClickable="false"
+            android:nestedScrollingEnabled="false"
+            android:baselineAlignBottom="false" />
+    </LinearLayout>
+</LinearLayout>

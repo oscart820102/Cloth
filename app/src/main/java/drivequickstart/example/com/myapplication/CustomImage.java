@@ -1,0 +1,48 @@
+package drivequickstart.example.com.myapplication;
+
+import java.text.SimpleDateFormat;
+
+/**
+ * Created by arthome on 2016/9/24.
+ */
+
+/**自訂的Class, 用以接收DB裡的資料*/
+public class CustomImage {
+    private String title, description;
+
+    public byte[] getImageByte() {
+        return imageByte;
+    }
+
+    public void setImageByte(byte[] imageByte) {
+        this.imageByte = imageByte;
+    }
+
+    private byte[] imageByte;
+    private long datetimeLong;
+    private SimpleDateFormat df = new SimpleDateFormat("MMMM d, yy  h:mm");
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public long getDatetime() {
+        return datetimeLong;
+    }
+
+    public void setDatetime(long datetimeLong) {
+        this.datetimeLong = datetimeLong;
+    }
+}
