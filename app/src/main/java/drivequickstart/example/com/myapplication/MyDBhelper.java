@@ -28,11 +28,12 @@ public class MyDBhelper extends SQLiteOpenHelper {
     public static final String COLUMN_DATETIME = "datetime";
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String PRIMARY_KEY = "PRIMARY KEY (" + COLUMN_TITLE + "," + COLUMN_DATETIME + ")";
+    public static final String COLUMN_CATEGORY = "category";
 
     private static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
 //            COLUMN_PATH +
-//            TEXT_TYPE + COMMA_SEP +
+            COLUMN_CATEGORY + COMMA_SEP +
             COLUMN_IMAGE + BLOB_TYPE + COMMA_SEP +
             COLUMN_TITLE + TEXT_TYPE + COMMA_SEP +
             COLUMN_DESCRIPTION + TEXT_TYPE + COMMA_SEP +

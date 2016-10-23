@@ -33,7 +33,7 @@
         android:layout_toLeftOf="@+id/view"
         android:layout_toStartOf="@+id/view"
         android:layout_weight="1"
-        android:background="@drawable/add_icon"
+        android:background="@drawable/add_icon1"
         android:scaleType="fitXY" />
 
     <ImageButton
@@ -46,7 +46,7 @@
         android:layout_toEndOf="@+id/view"
         android:layout_toRightOf="@+id/view"
         android:layout_weight="1"
-        android:background="@drawable/delete_icon"
+        android:background="@drawable/delete_icon1"
         android:scaleType="fitCenter" />
 
 

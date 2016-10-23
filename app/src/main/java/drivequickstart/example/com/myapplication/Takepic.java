@@ -2,6 +2,8 @@ package drivequickstart.example.com.myapplication;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -16,8 +18,10 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,14 +44,15 @@ public class Takepic extends Activity {
     private static final int REQUEST_CAMERA_PERMISSION = 2015;
     private Uri photoUri;
     private MyDAOdb daOdb;
-    private Button goToMatchButton;
-    private LinearLayout layout;
+    private ImageButton goToMatchImageButton;
+    private Button categoryButton;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_takepic);
-        layout = (LinearLayout) findViewById(R.id.activity_takepic_layout);
+        layout = (RelativeLayout) findViewById(R.id.activity_takepic_layout);
         layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
 
         //SDK23以上的手機要RunTime Permission
@@ -67,8 +72,9 @@ public class Takepic extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(mPhone);
 
         mImg = (ImageView) findViewById(R.id.img);
-        Button mCamera = (Button) findViewById(R.id.camera);
-        goToMatchButton = (Button) findViewById(R.id.takepic_match_button);
+        ImageButton mCamera = (ImageButton) findViewById(R.id.camera);
+        goToMatchImageButton = (ImageButton) findViewById(R.id.takepic_match_imagebutton);
+        categoryButton = (Button) findViewById(R.id.takepic_category_button);
 
         activityTakePhoto();
 
@@ -83,12 +89,19 @@ public class Takepic extends Activity {
             }
         });
 
-        goToMatchButton.setOnClickListener(new Button.OnClickListener() {
+        goToMatchImageButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Takepic.this,Match.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        categoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCategoryDialog();
             }
         });
     }
@@ -205,5 +218,21 @@ public class Takepic extends Activity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    private void showCategoryDialog(){
+        final String[] categorys = {"帽子","衣服","褲子","鞋子"};
+
+        AlertDialog.Builder dialog_list = new AlertDialog.Builder(this);
+        dialog_list.setTitle("類別");
+        dialog_list.setItems(categorys, new DialogInterface.OnClickListener(){
+            @Override
+            //只要你在onClick處理事件內，使用which參數，就可以知道按下陣列裡的哪一個了
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO 存照片
+                categoryButton.setText(categorys[which]);
+            }
+        });
+        dialog_list.show();
     }
 }

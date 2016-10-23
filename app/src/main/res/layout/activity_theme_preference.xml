@@ -14,50 +14,6 @@
     <RelativeLayout
         android:layout_height="200dp"
         android:layout_width="160dp"
-        android:id="@+id/theme_coffee_layout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true">
-
-        <ImageButton
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="80dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:src="@drawable/theme_coffee_main"
-            android:scaleType="centerInside"
-            android:id="@+id/coffee_imageButton"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:text="咖啡"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:textSize="24sp"
-            android:layout_marginTop="36dp"
-            android:id="@+id/coffee_text_view"
-            android:textStyle="normal|bold" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/delete_icon"
-            android:id="@+id/theme_coffee_use_imageButton"
-            android:layout_marginTop="15dp"
-            android:background="@android:color/transparent"
-            android:layout_below="@+id/coffee_text_view"
-            android:layout_alignEnd="@+id/coffee_text_view" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_height="200dp"
-        android:layout_width="160dp"
         android:id="@+id/theme_beach_layout"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true">
@@ -146,6 +102,7 @@
 
     <RelativeLayout
         android:id="@+id/theme_outdoor_layout"
+        android:layout_marginTop="100dp"
         android:layout_height="200dp"
         android:layout_width="160dp"
         android:layout_alignParentTop="true"
@@ -186,6 +143,51 @@
             android:background="@android:color/transparent"
             android:layout_below="@+id/outdoor_text_view"
             android:layout_alignEnd="@+id/outdoor_text_view" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="200dp"
+        android:layout_width="160dp"
+        android:id="@+id/theme_coffee_layout"
+        android:layout_alignTop="@+id/theme_outdoor_layout"
+        android:layout_alignParentEnd="true">
+
+        <ImageButton
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:src="@drawable/theme_coffee_main"
+            android:scaleType="centerInside"
+            android:id="@+id/coffee_imageButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="咖啡廳"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="24sp"
+            android:layout_marginTop="36dp"
+            android:id="@+id/coffee_text_view"
+            android:textStyle="normal|bold" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete_icon"
+            android:id="@+id/theme_coffee_use_imageButton"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/coffee_text_view"
+            android:layout_alignEnd="@+id/coffee_text_view"
+            android:layout_alignStart="@+id/coffee_text_view" />
     </RelativeLayout>
 
 </RelativeLayout>

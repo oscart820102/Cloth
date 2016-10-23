@@ -6,9 +6,24 @@ import java.text.SimpleDateFormat;
  * Created by arthome on 2016/9/24.
  */
 
-/**自訂的Class, 用以接收DB裡的資料*/
+/**
+ * 自訂的Class, 用以接收DB裡的資料
+ */
 public class CustomImage {
+    public enum Category {HAT, CLOTHES, PANTS, SHOES}
+
     private String title, description;
+    private byte[] imageByte;
+    private long datetimeLong;
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public byte[] getImageByte() {
         return imageByte;
@@ -18,8 +33,6 @@ public class CustomImage {
         this.imageByte = imageByte;
     }
 
-    private byte[] imageByte;
-    private long datetimeLong;
     private SimpleDateFormat df = new SimpleDateFormat("MMMM d, yy  h:mm");
 
     public String getTitle() {

@@ -38,7 +38,8 @@ public class MyDAOdb {
      */
     public long addImage(CustomImage image) {
         ContentValues cv = new ContentValues();
-//        cv.put(DBhelper.COLUMN_PATH, image.getPath());
+//        cv.put(MyDBhelper.COLUMN_CATEGORY, image.getCategory().name());
+//        cv.put(MyDBhelper.COLUMN_CATEGORY, image.getCategory().name());
         cv.put(MyDBhelper.COLUMN_TITLE, image.getTitle());
         cv.put(MyDBhelper.COLUMN_DESCRIPTION, image.getDescription());
         cv.put(MyDBhelper.COLUMN_DATETIME, System.currentTimeMillis());
@@ -96,6 +97,7 @@ public class MyDAOdb {
                 cursor.getColumnIndex(MyDBhelper.COLUMN_DESCRIPTION)));
         image.setImageByte(cursor.getBlob(
                 cursor.getColumnIndex(MyDBhelper.COLUMN_IMAGE)));
+        image.setCategory(Enum.valueOf(CustomImage.Category.class, cursor.getString(cursor.getColumnIndex(MyDBhelper.COLUMN_CATEGORY))));
         return image;
     }
 }
