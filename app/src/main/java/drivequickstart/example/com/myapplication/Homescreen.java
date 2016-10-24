@@ -65,7 +65,8 @@ public class Homescreen extends Activity {
                     intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
                     startActivityForResult(intent, IMAGE_CAPTURE);*/
                 Intent intent = new Intent();
-                intent.setClass(Homescreen.this, Takepic.class);
+//                intent.setClass(Homescreen.this, Takepic.class);
+                intent.setClass(Homescreen.this, TakePicCategory.class);
                 startActivity(intent);
             }
         });

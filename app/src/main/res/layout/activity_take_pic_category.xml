@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_take_pic_category_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="8dp"
+        android:padding="4dp"
+        android:weightSum="4"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_hat"
+            android:scaleType="fitCenter"
+            android:id="@+id/take_pic_category_hat_image_button"
+            android:layout_weight="1" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_cloth"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:id="@+id/take_pic_category_cloth_image_button"
+            android:layout_weight="1" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_pant"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:id="@+id/take_pic_category_pant_image_button"
+            android:layout_weight="1" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_shoe"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:id="@+id/take_pic_category_shoe_image_button"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>
