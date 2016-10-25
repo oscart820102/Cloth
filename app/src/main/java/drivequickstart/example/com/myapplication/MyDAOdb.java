@@ -38,8 +38,6 @@ public class MyDAOdb {
      */
     public long addImage(CustomImage image) {
         ContentValues cv = new ContentValues();
-//        cv.put(MyDBhelper.COLUMN_CATEGORY, image.getCategory().name());
-//        cv.put(MyDBhelper.COLUMN_CATEGORY, image.getCategory().name());
         cv.put(MyDBhelper.COLUMN_TITLE, image.getTitle());
         cv.put(MyDBhelper.COLUMN_DESCRIPTION, image.getDescription());
         cv.put(MyDBhelper.COLUMN_DATETIME, System.currentTimeMillis());
@@ -74,6 +72,25 @@ public class MyDAOdb {
         while (!cursor.isAfterLast()) {
             CustomImage MyImage = cursorToMyImage(cursor);
             MyImages.add(MyImage);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return MyImages;
+    }
+
+    /**
+     * @return all image as a List
+     */
+    public List<CustomImage> getCategoryImages(String category) {
+        List<CustomImage> MyImages = new ArrayList<>();
+        Cursor cursor =
+                database.query(MyDBhelper.TABLE_NAME, null, null, null, null,
+                        null, MyDBhelper.COLUMN_DATETIME + " DESC");
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            CustomImage MyImage = cursorToMyImage(cursor);
+            if (MyImage.getCategory().name().equals(category))
+                MyImages.add(MyImage);
             cursor.moveToNext();
         }
         cursor.close();

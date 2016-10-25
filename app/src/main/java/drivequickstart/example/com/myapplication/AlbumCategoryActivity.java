@@ -1,0 +1,65 @@
+package drivequickstart.example.com.myapplication;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+
+public class AlbumCategoryActivity extends AppCompatActivity {
+    LinearLayout hatLayout;
+    LinearLayout clothLayout;
+    LinearLayout pantLayout;
+    LinearLayout shoeLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_album_category);
+
+        getSupportActionBar().hide();
+
+        hatLayout = (LinearLayout) findViewById(R.id.album_category_hat_layout);
+        clothLayout = (LinearLayout) findViewById(R.id.album_category_cloth_layout);
+        pantLayout = (LinearLayout) findViewById(R.id.album_category_pant_layout);
+        shoeLayout = (LinearLayout) findViewById(R.id.album_category_shoe_layout);
+
+        hatLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_HAT);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        clothLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_CLOTH);
+                startActivity(intent);
+                finish();
+            }
+        });
+        pantLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_PANT);
+                startActivity(intent);
+                finish();
+            }
+        });
+        shoeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_SHOE);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+}

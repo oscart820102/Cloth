@@ -84,7 +84,7 @@ public class Homescreen extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(Homescreen.this, AlbumActivity.class);
+                intent.setClass(Homescreen.this, AlbumCategoryActivity.class);
                 startActivity(intent);
             }
         });

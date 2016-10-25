@@ -44,13 +44,33 @@ public class AlbumActivity extends AppCompatActivity {
     private MyDAOdb daOdb;
     private Uri photoUri;
     private RelativeLayout layout;
+    private String categoryString;
+    private CustomImage.Category category;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
         layout = (RelativeLayout) findViewById(R.id.activity_album_layout);
         layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
+
+        categoryString = getIntent().getStringExtra(Constant.INTENT_CATEGORY);
+
+
+        switch (categoryString){
+            case Constant.INTENT_HAT :
+                category = CustomImage.Category.HAT;
+                break;
+            case Constant.INTENT_CLOTH :
+                category = CustomImage.Category.CLOTHES;
+                break;
+            case Constant.INTENT_PANT :
+                category = CustomImage.Category.PANTS;
+                break;
+            case Constant.INTENT_SHOE :
+                category = CustomImage.Category.SHOES;
+                break;
+        }
+
         //SDK23以上的手機要RunTime Permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -127,7 +147,7 @@ public class AlbumActivity extends AppCompatActivity {
                 }
                 adapter.deleteImages();
                 customImageArrayList.clear();
-                for (CustomImage mi : daOdb.getImages()) {
+                for (CustomImage mi : daOdb.getCategoryImages(categoryString)) {
                     customImageArrayList.add(mi);
                 }
                 adapter.notifyDataSetChanged();
@@ -158,7 +178,7 @@ public class AlbumActivity extends AppCompatActivity {
     private void initDB() {
         daOdb = new MyDAOdb(this);
         //add images from database to images ArrayList
-        for (CustomImage mi : daOdb.getImages()) {
+        for (CustomImage mi : daOdb.getCategoryImages(categoryString)) {
             customImageArrayList.add(mi);
         }
         //從DB撈完資料,通知adapter刷新
@@ -187,6 +207,7 @@ public class AlbumActivity extends AppCompatActivity {
             customImage.setTitle("");
             customImage.setDescription("");
             customImage.setImageByte(DbBitmapUtility.getBytes(bmp));
+            customImage.setCategory(category);
             daOdb.addImage(customImage);    //加入DB
             customImageArrayList.add(0, customImage);   //加入要顯示的List
             adapter.notifyDataSetChanged();     //刷新adapter
@@ -203,6 +224,7 @@ public class AlbumActivity extends AppCompatActivity {
             customImage.setTitle("");
             customImage.setDescription("");
             customImage.setImageByte(DbBitmapUtility.getBytes(photoBitmap));
+            customImage.setCategory(category);
             daOdb.addImage(customImage);    //加入DB
             customImageArrayList.add(0, customImage);   //加入要顯示的List
             adapter.notifyDataSetChanged();     //刷新adapter
