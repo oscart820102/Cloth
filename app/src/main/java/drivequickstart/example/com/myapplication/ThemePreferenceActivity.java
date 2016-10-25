@@ -34,6 +34,7 @@ public class ThemePreferenceActivity extends Activity {
             @Override
             public void onClick(View v) {
                 setPrefeBackground(R.drawable.theme_outdoor_main, R.drawable.theme_outdoor_browse, R.drawable.theme_outdoor_match);
+                layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
 
@@ -41,6 +42,7 @@ public class ThemePreferenceActivity extends Activity {
             @Override
             public void onClick(View v) {
                 setPrefeBackground(R.drawable.theme_coffee_main, R.drawable.theme_coffee_browse, R.drawable.theme_coffee_match);
+                layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
 
@@ -48,14 +50,22 @@ public class ThemePreferenceActivity extends Activity {
             @Override
             public void onClick(View v) {
                 setPrefeBackground(R.drawable.theme_party_main, R.drawable.theme_party_browse, R.drawable.theme_party_match);
+                layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
         chooseBeachImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setPrefeBackground(R.drawable.theme_beach_main, R.drawable.theme_beach_browse, R.drawable.theme_beach_match);
+                layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
     }
 
     private void setPrefeBackground(int mainBackgroundID, int browseBackgroundID, int matchBackgroundID){

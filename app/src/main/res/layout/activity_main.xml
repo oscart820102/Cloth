@@ -3,32 +3,40 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/activity_match_layout"
+    android:weightSum="4"
     android:orientation="vertical" >
 
 
     <android.support.v7.widget.RecyclerView
+        android:padding="8dp"
         android:id="@+id/hat_recycler_view"
         android:layout_width="match_parent"
-        android:layout_marginTop="40dp"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cloth_recycler_view"
+        android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/pant_recycler_view"
+        android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shoe_recycler_view"
+        android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
 
 </LinearLayout>

@@ -50,6 +50,8 @@ public class AlbumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
+        getSupportActionBar().hide();
+
         layout = (RelativeLayout) findViewById(R.id.activity_album_layout);
         layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
 
