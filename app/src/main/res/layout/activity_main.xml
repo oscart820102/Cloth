@@ -5,29 +5,30 @@
     android:id="@+id/activity_match_layout"
     android:orientation="vertical" >
 
-    <Gallery
-        android:id="@+id/gallery"
-        android:layout_width="fill_parent"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/hat_recycler_view"
+        android:layout_width="match_parent"
         android:layout_marginTop="40dp"
         android:layout_height="100dp"
-
         />
 
-    <Gallery
-        android:layout_width="fill_parent"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cloth_recycler_view"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/gallery2"
         />
-    <Gallery
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:id="@+id/gallery3"
-         />
 
-    <Gallery
-        android:layout_width="fill_parent"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pant_recycler_view"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/gallery4"
-         />
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/shoe_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        />
 
 </LinearLayout>
