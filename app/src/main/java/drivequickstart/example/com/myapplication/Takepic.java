@@ -47,13 +47,27 @@ public class Takepic extends Activity {
     private ImageButton goToMatchImageButton;
     private Button categoryButton;
     private RelativeLayout layout;
-
-    @Override
+    private CustomImage.Category category;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_takepic);
         layout = (RelativeLayout) findViewById(R.id.activity_takepic_layout);
         layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
+
+        switch (getIntent().getStringExtra(Constant.INTENT_CATEGORY)){
+            case Constant.INTENT_HAT :
+                category = CustomImage.Category.HAT;
+                break;
+            case Constant.INTENT_CLOTH :
+                category = CustomImage.Category.CLOTHES;
+                break;
+            case Constant.INTENT_PANT :
+                category = CustomImage.Category.PANTS;
+                break;
+            case Constant.INTENT_SHOE :
+                category = CustomImage.Category.SHOES;
+                break;
+        }
 
         //SDK23以上的手機要RunTime Permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -124,6 +138,7 @@ public class Takepic extends Activity {
                 customImage.setTitle("");
                 customImage.setDescription("");
                 customImage.setImageByte(DbBitmapUtility.getBytes(photoBitmap));
+                customImage.setCategory(category);
                 daOdb.addImage(customImage);    //加入DB
                 //判斷照片為橫向或者為直向，並進入ScalePic判斷圖片是否要進行縮放
                 if (photoBitmap.getWidth() > photoBitmap.getHeight()) {
@@ -142,6 +157,7 @@ public class Takepic extends Activity {
             customImage.setTitle("");
             customImage.setDescription("");
             customImage.setImageByte(DbBitmapUtility.getBytes(bitmap));
+            customImage.setCategory(category);
             daOdb.addImage(customImage);    //加入DB
             ScalePic(bitmap, mPhone.widthPixels);
         }

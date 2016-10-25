@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
  */
 public class CustomImage {
     public enum Category {HAT, CLOTHES, PANTS, SHOES}
-
     private String title, description;
     private byte[] imageByte;
     private long datetimeLong;

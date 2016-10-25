@@ -33,7 +33,7 @@ public class MyDBhelper extends SQLiteOpenHelper {
     private static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
 //            COLUMN_PATH +
-            COLUMN_CATEGORY + COMMA_SEP +
+            COLUMN_CATEGORY +TEXT_TYPE+ COMMA_SEP +
             COLUMN_IMAGE + BLOB_TYPE + COMMA_SEP +
             COLUMN_TITLE + TEXT_TYPE + COMMA_SEP +
             COLUMN_DESCRIPTION + TEXT_TYPE + COMMA_SEP +

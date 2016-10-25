@@ -44,6 +44,7 @@ public class MyDAOdb {
         cv.put(MyDBhelper.COLUMN_DESCRIPTION, image.getDescription());
         cv.put(MyDBhelper.COLUMN_DATETIME, System.currentTimeMillis());
         cv.put(MyDBhelper.COLUMN_IMAGE, image.getImageByte());
+        cv.put(MyDBhelper.COLUMN_CATEGORY, image.getCategory().name());
         return database.insert(MyDBhelper.TABLE_NAME, null, cv);
     }
 
