@@ -11,6 +11,7 @@ public class AlbumCategoryActivity extends AppCompatActivity {
     LinearLayout clothLayout;
     LinearLayout pantLayout;
     LinearLayout shoeLayout;
+    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +19,13 @@ public class AlbumCategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_album_category);
 
         getSupportActionBar().hide();
-
+        layout = (LinearLayout) findViewById(R.id.activity_album_category_layout);
         hatLayout = (LinearLayout) findViewById(R.id.album_category_hat_layout);
         clothLayout = (LinearLayout) findViewById(R.id.album_category_cloth_layout);
         pantLayout = (LinearLayout) findViewById(R.id.album_category_pant_layout);
         shoeLayout = (LinearLayout) findViewById(R.id.album_category_shoe_layout);
+
+        layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
 
         hatLayout.setOnClickListener(new View.OnClickListener() {
             @Override
