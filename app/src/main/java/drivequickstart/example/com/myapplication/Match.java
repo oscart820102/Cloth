@@ -1,6 +1,7 @@
 package drivequickstart.example.com.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -35,6 +37,11 @@ public class Match extends Activity {
     private RecyclerView clothRecylcerView;
     private RecyclerView pantRecylcerView;
     private RecyclerView shoeRecylcerView;
+    private ImageButton hatAddImageButton, clothAddImageButton, pantAddImageButton, shoeAddImageButton;
+    private recycleGalleryAdapter shoeAdapter;
+    private recycleGalleryAdapter pantAdapter;
+    private recycleGalleryAdapter clothAdapter;
+    private recycleGalleryAdapter hatAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,53 +50,71 @@ public class Match extends Activity {
         layout = (LinearLayout) findViewById(R.id.activity_match_layout);
         layout.setBackgroundResource(new getPref().getThemeMatchResID(this));
 
-        daOdb = new MyDAOdb(this);
-
-        for (CustomImage mi : daOdb.getImages()) {
-            if (mi.getCategory().name().equals("HAT"))
-                hatImageList.add(mi);
-            else if(mi.getCategory().name().equals("CLOTHES"))
-                clothImageList.add(mi);
-            else if(mi.getCategory().name().equals("PANTS"))
-                pantImageList.add(mi);
-            else if(mi.getCategory().name().equals("SHOES"))
-                shoeImageList.add(mi);
-        }
-
-        daOdb.close();
-        System.out.println(">>>>>CLOSED size is " + hatImageList.size());
 
         hatRecylcerView = (RecyclerView) findViewById(R.id.hat_recycler_view);
         hatRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        hatRecylcerView.setAdapter(new recycleGalleryAdapter(this, hatImageList));
+        hatAdapter = new recycleGalleryAdapter(this, hatImageList);
+        hatRecylcerView.setAdapter(hatAdapter);
 
         clothRecylcerView = (RecyclerView) findViewById(R.id.cloth_recycler_view);
         clothRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        clothRecylcerView.setAdapter(new recycleGalleryAdapter(this, clothImageList));
+        clothAdapter = new recycleGalleryAdapter(this, clothImageList);
+        clothRecylcerView.setAdapter(clothAdapter);
 
         pantRecylcerView = (RecyclerView) findViewById(R.id.pant_recycler_view);
         pantRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        pantRecylcerView.setAdapter(new recycleGalleryAdapter(this, pantImageList));
+        pantAdapter = new recycleGalleryAdapter(this, pantImageList);
+        pantRecylcerView.setAdapter(pantAdapter);
 
         shoeRecylcerView = (RecyclerView) findViewById(R.id.shoe_recycler_view);
         shoeRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        shoeRecylcerView.setAdapter(new recycleGalleryAdapter(this, shoeImageList));
+        shoeAdapter = new recycleGalleryAdapter(this, shoeImageList);
+        shoeRecylcerView.setAdapter(shoeAdapter);
 
-//
-//        Gallery gallery2=(Gallery)findViewById(R.id.gallery2);
-//        adapter2= new galleryAdapter(this, clothImageList);
-//        gallery2.setAdapter(adapter2);
-//        gallery2.setSpacing(50);
-//
-//        Gallery gallery3=(Gallery)findViewById(R.id.gallery3);
-//        adapter3=new galleryAdapter(this, shoeImageList);
-//        gallery3.setAdapter(adapter3);
-//        gallery3.setSpacing(50);
-//
-//        Gallery gallery4=(Gallery)findViewById(R.id.gallery4);
-//        adapter4=new galleryAdapter(this , pantImageList);
-//        gallery4.setAdapter(adapter4);
-//        gallery4.setSpacing(50);
+        hatAddImageButton = (ImageButton) findViewById(R.id.match_hat_add_image_button);
+        clothAddImageButton = (ImageButton) findViewById(R.id.match_cloth_add_image_button);
+        pantAddImageButton = (ImageButton) findViewById(R.id.match_pant_add_image_button);
+        shoeAddImageButton = (ImageButton) findViewById(R.id.match_shoe_add_image_button);
+
+        hatAddImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Match.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_HAT);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_MATCH);
+                startActivity(intent);
+            }
+        });
+
+        clothAddImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Match.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_CLOTH);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_MATCH);
+                startActivity(intent);
+            }
+        });
+
+        pantAddImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Match.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_PANT);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_MATCH);
+                startActivity(intent);
+            }
+        });
+
+        shoeAddImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Match.this, AlbumActivity.class);
+                intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_SHOE);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_MATCH);
+                startActivity(intent);
+            }
+        });
 
 //        gallery.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override
@@ -141,5 +166,32 @@ public class Match extends Activity {
 //        });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        daOdb = new MyDAOdb(this);
+        hatImageList.clear();
+        clothImageList.clear();
+        pantImageList.clear();
+        shoeImageList.clear();
+        for (CustomImage mi : daOdb.getImages()) {
+            if (mi.getIsMatch() == 1) {
+                if (mi.getCategory().name().equals("HAT"))
+                    hatImageList.add(mi);
+                else if (mi.getCategory().name().equals("CLOTHES"))
+                    clothImageList.add(mi);
+                else if (mi.getCategory().name().equals("PANTS"))
+                    pantImageList.add(mi);
+                else if (mi.getCategory().name().equals("SHOES"))
+                    shoeImageList.add(mi);
+            }
+        }
 
+        hatAdapter.notifyDataSetChanged();
+        clothAdapter.notifyDataSetChanged();
+        pantAdapter.notifyDataSetChanged();
+        shoeAdapter.notifyDataSetChanged();
+
+        daOdb.close();
+    }
 }

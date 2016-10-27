@@ -15,6 +15,7 @@ public class CustomImage {
     private byte[] imageByte;
     private long datetimeLong;
     private Category category;
+    private int isMatch;
 
     public Category getCategory() {
         return category;
@@ -56,5 +57,14 @@ public class CustomImage {
 
     public void setDatetime(long datetimeLong) {
         this.datetimeLong = datetimeLong;
+    }
+
+
+    public int getIsMatch() {
+        return isMatch;
+    }
+
+    public void setIsMatch(int isMatch) {
+        this.isMatch = isMatch;
     }
 }

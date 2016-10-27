@@ -19,6 +19,7 @@ public class MyDBhelper extends SQLiteOpenHelper {
     public static final String TEXT_TYPE = " TEXT";
     public static final String NUMERIC_TYPE = " NUMERIC";
     public static final String BLOB_TYPE = " BLOB";
+    public static final String INT_TYPE = " INTEGER NOT NULL";
 
     public static final String TABLE_NAME = "image";
 
@@ -29,10 +30,12 @@ public class MyDBhelper extends SQLiteOpenHelper {
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String PRIMARY_KEY = "PRIMARY KEY (" + COLUMN_TITLE + "," + COLUMN_DATETIME + ")";
     public static final String COLUMN_CATEGORY = "category";
+    public static final String COLUMN_IS_MATCH = "ismatch";
 
     private static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
 //            COLUMN_PATH +
+            COLUMN_IS_MATCH +INT_TYPE+ COMMA_SEP +
             COLUMN_CATEGORY +TEXT_TYPE+ COMMA_SEP +
             COLUMN_IMAGE + BLOB_TYPE + COMMA_SEP +
             COLUMN_TITLE + TEXT_TYPE + COMMA_SEP +

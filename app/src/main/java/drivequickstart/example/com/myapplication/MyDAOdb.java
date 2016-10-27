@@ -43,7 +43,28 @@ public class MyDAOdb {
         cv.put(MyDBhelper.COLUMN_DATETIME, System.currentTimeMillis());
         cv.put(MyDBhelper.COLUMN_IMAGE, image.getImageByte());
         cv.put(MyDBhelper.COLUMN_CATEGORY, image.getCategory().name());
+        cv.put(MyDBhelper.COLUMN_IS_MATCH, 0);
         return database.insert(MyDBhelper.TABLE_NAME, null, cv);
+    }
+
+    public long updateImage(CustomImage image){ //ismatch變成1
+
+
+        ContentValues cv = new ContentValues();
+//        cv.put(MyDBhelper.COLUMN_TITLE, image.getTitle());
+//        cv.put(MyDBhelper.COLUMN_DESCRIPTION, image.getDescription());
+//        cv.put(MyDBhelper.COLUMN_DATETIME, System.currentTimeMillis());
+//        cv.put(MyDBhelper.COLUMN_IMAGE, image.getImageByte());
+//        cv.put(MyDBhelper.COLUMN_CATEGORY, image.getCategory().name());
+        cv.put(MyDBhelper.COLUMN_IS_MATCH, 1);
+
+        String whereClause =
+                MyDBhelper.COLUMN_TITLE + "=? AND " + MyDBhelper.COLUMN_DATETIME +
+                        "=?";
+        String[] whereArgs = new String[]{image.getTitle(),
+                String.valueOf(image.getDatetime())};
+
+        return database.update(MyDBhelper.TABLE_NAME, cv, whereClause, whereArgs);
     }
 
     /**
@@ -116,6 +137,8 @@ public class MyDAOdb {
         image.setImageByte(cursor.getBlob(
                 cursor.getColumnIndex(MyDBhelper.COLUMN_IMAGE)));
         image.setCategory(Enum.valueOf(CustomImage.Category.class, cursor.getString(cursor.getColumnIndex(MyDBhelper.COLUMN_CATEGORY))));
+
+        image.setIsMatch(cursor.getInt(cursor.getColumnIndex(MyDBhelper.COLUMN_IS_MATCH)));
         return image;
     }
 }

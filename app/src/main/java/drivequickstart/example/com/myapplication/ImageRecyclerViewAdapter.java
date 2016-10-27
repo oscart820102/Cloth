@@ -18,9 +18,12 @@ import java.util.ArrayList;
 public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecyclerViewAdapter.MyViewHolder> {
     private ArrayList<CustomImage> imageList;
     private ArrayList<Integer> deletePosition = new ArrayList<>();  //記住刪除模式選取的位置
+    private ArrayList<Integer> addMatchPosition = new ArrayList<>();  //記住match模式選取的位置
     private boolean deleteMode = false; //是否為刪除模式
+    private boolean matchMode = false;
     private Context context;
     private AdapterListener listener;
+
     public int getDeleteCount() {
         return deleteCount;
     }
@@ -51,6 +54,14 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
                         deleteCount++;
                         listener.imageSelected(deletePosition.size());
                     }
+                } else if (matchMode) {
+                    if (myViewHolder.deleteImageView.isSelected()) {
+                        myViewHolder.deleteImageView.setSelected(false);
+                        addMatchPosition.remove(Integer.valueOf(myViewHolder.getAdapterPosition()));
+                    } else {
+                        myViewHolder.deleteImageView.setSelected(true);
+                        addMatchPosition.add(myViewHolder.getAdapterPosition());
+                    }
                 } else {
                     ImageDialog imageDialog = new ImageDialog(context, imageList.get(myViewHolder.getAdapterPosition()));
                     imageDialog.show();
@@ -63,6 +74,9 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        if(matchMode){      //match Mode改成+號
+            holder.deleteImageView.setChooseSelector();
+        }
         holder.deleteImageView.setSelected(false);  //防bug, 按完刪除後 沒刪除的照片會出現X
         Glide.with(context).load(imageList.get(position).getImageByte())
                 .asBitmap()
@@ -95,6 +109,14 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
         this.deleteMode = deleteMode;
     }
 
+    public boolean isMatchMode() {
+        return matchMode;
+    }
+
+    public void setMatchMode(boolean matchMode) {
+        this.matchMode = matchMode;
+    }
+
     public void setListener(AdapterListener listener) {
         this.listener = listener;
     }
@@ -112,6 +134,14 @@ public class ImageRecyclerViewAdapter extends RecyclerView.Adapter<ImageRecycler
         deleteCount = 0;
         deletePosition.clear();
         deleteMode = false;
+    }
+
+    public void saveToDB(){
+        MyDAOdb  daOdb = new MyDAOdb(context);
+        for (int i = 0; i< addMatchPosition.size() ; i++){
+            daOdb.updateImage(imageList.get(addMatchPosition.get(i)));
+        }
+        daOdb.close();
     }
 
     interface AdapterListener {

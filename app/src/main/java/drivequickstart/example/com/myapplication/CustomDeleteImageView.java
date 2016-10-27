@@ -45,6 +45,10 @@ public class CustomDeleteImageView extends RelativeLayout {
         else
             deleteImageView.setSelected(false);
     }
+
+    public void setChooseSelector(){
+        deleteImageView.setImageResource(R.drawable.choose_selector);
+    }
     public boolean isSelected(){
         return deleteImageView.isSelected();
     }

@@ -23,15 +23,18 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_hat"
             android:id="@+id/imageView"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="3" />
 
         <TextView
             android:text="帽子"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="48sp"
-            android:layout_weight="7" />
+            android:layout_marginTop="10dp"
+            android:textSize="35sp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="7"/>
     </LinearLayout>
 
     <LinearLayout
@@ -47,14 +50,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_cloth"
-            android:layout_weight="3" />
+            android:layout_marginRight="15dp"
+            android:layout_weight="2.2" />
 
         <TextView
             android:text="衣服"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="48sp"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="35sp"
             android:layout_weight="7" />
     </LinearLayout>
 
@@ -71,14 +76,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_pant"
-            android:layout_weight="3" />
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2.2" />
 
         <TextView
             android:text="褲子"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="48sp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="35sp"
             android:layout_weight="7" />
     </LinearLayout>
 
@@ -95,14 +103,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_shoe"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="3dp"
             android:layout_weight="3" />
 
         <TextView
             android:text="鞋子"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="48sp"
+            android:textSize="35sp"
+            android:layout_marginRight="50dp"
             android:layout_weight="7" />
     </LinearLayout>
 </LinearLayout>

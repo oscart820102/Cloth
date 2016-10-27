@@ -1,42 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_match_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:id="@+id/activity_match_layout"
-    android:weightSum="4"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:weightSum="5">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:padding="8dp"
-        android:id="@+id/hat_recycler_view"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="5">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/cloth_recycler_view"
-        android:padding="8dp"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/hat_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="4dp" />
+        <ImageButton
+            android:id="@+id/match_hat_add_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/add_icon1"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="5">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/pant_recycler_view"
-        android:padding="8dp"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cloth_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="4dp" />
+        <ImageButton
+            android:id="@+id/match_cloth_add_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/add_icon1"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="5">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/shoe_recycler_view"
-        android:padding="8dp"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/pant_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="4dp" />
+        <ImageButton
+            android:id="@+id/match_pant_add_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/add_icon1"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="5">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/shoe_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="4dp" />
+        <ImageButton
+            android:id="@+id/match_shoe_add_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/add_icon1"
+            android:scaleType="fitXY" />
+    </LinearLayout>
 
 </LinearLayout>

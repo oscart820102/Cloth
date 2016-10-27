@@ -32,6 +32,7 @@ public class AlbumCategoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
                 intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_HAT);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_ALBUM);
                 startActivity(intent);
                 finish();
             }
@@ -42,6 +43,7 @@ public class AlbumCategoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
                 intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_CLOTH);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_ALBUM);
                 startActivity(intent);
                 finish();
             }
@@ -51,6 +53,7 @@ public class AlbumCategoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
                 intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_PANT);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_ALBUM);
                 startActivity(intent);
                 finish();
             }
@@ -60,6 +63,7 @@ public class AlbumCategoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AlbumCategoryActivity.this, AlbumActivity.class);
                 intent.putExtra(Constant.INTENT_CATEGORY, Constant.INTENT_SHOE);
+                intent.putExtra(Constant.INTENT_OPEN_BY, Constant.INTENT_ALBUM);
                 startActivity(intent);
                 finish();
             }

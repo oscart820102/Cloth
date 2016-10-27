@@ -35,6 +35,7 @@ public class AlbumActivity extends AppCompatActivity {
 
     private ImageButton addImageButton;
     private ImageButton deleteImageButton;
+    private Button addToMatchButton;
     private Button cancelDeleteButton;
     private Button deleteButton;
     private LinearLayout deleteLayout;
@@ -85,6 +86,8 @@ public class AlbumActivity extends AppCompatActivity {
 
         findUIViews();
 
+
+
         // Construct the data source
         customImageArrayList = new ArrayList();
         // Create the adapter to convert the array to views
@@ -92,6 +95,14 @@ public class AlbumActivity extends AppCompatActivity {
         // Attach the adapter to a ListView
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+
+        if(getIntent().getStringExtra(Constant.INTENT_OPEN_BY).equals(Constant.INTENT_ALBUM)){
+            isAlbumMode(true);
+        }else if(getIntent().getStringExtra(Constant.INTENT_OPEN_BY).equals(Constant.INTENT_MATCH)){
+            isAlbumMode(false);
+            adapter.setMatchMode(true);
+            adapter.notifyDataSetChanged();
+        }
 
         setListeners();
 
@@ -106,6 +117,7 @@ public class AlbumActivity extends AppCompatActivity {
         deleteImageButton = (ImageButton) findViewById(R.id.album_delete_imagebutton);
         recyclerView = (RecyclerView) findViewById(R.id.album_recycler_view);
         layout = (RelativeLayout) findViewById(R.id.activity_album_layout);
+        addToMatchButton = (Button) findViewById(R.id.album_add_to_match_button);
     }
 
     private void setListeners() {
@@ -164,6 +176,14 @@ public class AlbumActivity extends AppCompatActivity {
                 normalMode();
                 adapter.cancelDelete();
                 adapter.notifyDataSetChanged();
+            }
+        });
+
+        addToMatchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.saveToDB();
+                finish();
             }
         });
     }
@@ -251,6 +271,18 @@ public class AlbumActivity extends AppCompatActivity {
         attributes.gravity = Gravity.BOTTOM;
         dialog.getWindow().setAttributes(attributes);
         dialog.show();
+    }
+
+    private void isAlbumMode(boolean isAlbumMode){     //判斷是album瀏覽 或是 match要增加,顯示對應的View
+        if(isAlbumMode){
+            addImageButton.setVisibility(View.VISIBLE);
+            deleteImageButton.setVisibility(View.VISIBLE);
+            addToMatchButton.setVisibility(View.INVISIBLE);
+        }else {
+            addImageButton.setVisibility(View.INVISIBLE);
+            deleteImageButton.setVisibility(View.INVISIBLE);
+            addToMatchButton.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
