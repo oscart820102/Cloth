@@ -9,44 +9,43 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
-        android:padding="4dp"
+        android:layout_height="200dp"
+        android:padding="3dp"
         android:weightSum="4"
         android:gravity="center_vertical"
         android:layout_centerVertical="true">
 
         <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_hat"
+            app:srcCompat="@drawable/hat1"
             android:scaleType="fitCenter"
             android:id="@+id/take_pic_category_hat_image_button"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
         <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_cloth"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/clothe1"
             android:scaleType="fitCenter"
             android:background="@android:color/transparent"
             android:id="@+id/take_pic_category_cloth_image_button"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
         <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_pant"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/pants2"
             android:scaleType="fitCenter"
             android:background="@android:color/transparent"
             android:id="@+id/take_pic_category_pant_image_button"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
         <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_shoe"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/shoes2"
             android:scaleType="fitCenter"
             android:background="@android:color/transparent"
             android:id="@+id/take_pic_category_shoe_image_button"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
     </LinearLayout>
 </RelativeLayout>

@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:text="繼續拍攝"
             android:layout_weight="1"
-            android:src="@drawable/continue_icon1"
+            android:src="@drawable/icon_con"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent" />
 
@@ -60,7 +60,7 @@
             android:layout_height="match_parent"
             android:text="進入搭配"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/into_icon3"
+            android:src="@drawable/icon_into"
             android:layout_weight="1"
             android:background="@android:color/transparent" />
     </LinearLayout>

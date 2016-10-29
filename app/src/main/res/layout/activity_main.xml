@@ -23,14 +23,13 @@
             android:id="@+id/hat_recycler_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="4.9"
             android:padding="4dp" />
         <ImageButton
             android:id="@+id/match_hat_add_image_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/add_icon1"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:background="@drawable/add5"
             android:scaleType="fitXY" />
     </LinearLayout>
 
@@ -46,14 +45,13 @@
             android:id="@+id/cloth_recycler_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="4.9"
             android:padding="4dp" />
         <ImageButton
             android:id="@+id/match_cloth_add_image_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/add_icon1"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:background="@drawable/add5"
             android:scaleType="fitXY" />
     </LinearLayout>
     <LinearLayout
@@ -68,14 +66,13 @@
             android:id="@+id/pant_recycler_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="4.9"
             android:padding="4dp" />
         <ImageButton
             android:id="@+id/match_pant_add_image_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/add_icon1"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:background="@drawable/add5"
             android:scaleType="fitXY" />
     </LinearLayout>
     <LinearLayout
@@ -90,14 +87,14 @@
             android:id="@+id/shoe_recycler_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="4.9"
             android:padding="4dp" />
+
         <ImageButton
             android:id="@+id/match_shoe_add_image_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/add_icon1"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:background="@drawable/add5"
             android:scaleType="fitXY" />
     </LinearLayout>
 

@@ -26,21 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:src="@drawable/theme_beach_main"
+            android:src="@drawable/beach"
             android:scaleType="centerInside"
             android:id="@+id/beach_imageButton"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/tool_icon3"
-            android:id="@+id/theme_beach_use_imageButton"
-            android:layout_marginTop="15dp"
-            android:background="@android:color/transparent"
-            android:layout_below="@+id/beach_text_view"
-            android:layout_alignEnd="@+id/beach_text_view" />
 
         <TextView
             android:text="海邊"
@@ -51,6 +41,16 @@
             android:id="@+id/beach_text_view"
             android:textStyle="normal|bold"
             android:layout_alignTop="@+id/beach_imageButton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="21dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tool1"
+            android:id="@+id/theme_beach_use_imageButton"
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:src="@drawable/theme_outdoor_main"
+            android:src="@drawable/flower"
             android:scaleType="centerInside"
             android:id="@+id/outdoor_imageButton"
             android:layout_alignParentTop="true"
@@ -81,21 +81,21 @@
             android:text="戶外"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:textSize="24sp"
-            android:layout_marginTop="36dp"
             android:id="@+id/outdoor_text_view"
             android:textStyle="normal|bold"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignTop="@+id/outdoor_imageButton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="23dp"
+            android:layout_marginTop="22dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/tool_icon3"
+            android:src="@drawable/tool1"
             android:id="@+id/theme_outdoor_use_imageButton"
-            android:layout_marginTop="21dp"
             android:background="@android:color/transparent"
-            android:layout_below="@+id/outdoor_text_view"
+            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
@@ -114,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:src="@drawable/theme_coffee_main"
+            android:src="@drawable/cafe"
             android:scaleType="centerInside"
             android:id="@+id/coffee_imageButton"
             android:layout_alignParentTop="true"
@@ -124,23 +124,22 @@
             android:text="咖啡廳"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="1dp"
+            android:textStyle="normal|bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:textSize="24sp"
             android:layout_marginTop="36dp"
             android:id="@+id/coffee_text_view"
-            android:textStyle="normal|bold" />
+            android:textSize="24sp"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/tool_icon3"
+            android:src="@drawable/tool1"
             android:id="@+id/theme_coffee_use_imageButton"
             android:background="@android:color/transparent"
-            android:layout_below="@+id/coffee_text_view"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="23dp" />
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -158,31 +157,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:src="@drawable/theme_party_main"
+            android:src="@drawable/party"
             android:scaleType="centerInside"
             android:id="@+id/party_imageButton"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/tool_icon3"
-            android:id="@+id/theme_party_use_imageButton"
-            android:layout_marginTop="15dp"
-            android:background="@android:color/transparent"
-            android:layout_below="@+id/party_text_view"
-            android:layout_alignEnd="@+id/party_text_view" />
 
         <TextView
             android:text="宴會"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="24dp"
             android:id="@+id/party_text_view"
             android:textStyle="normal|bold"
+            android:layout_marginEnd="24dp"
             android:layout_alignTop="@+id/party_imageButton"
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tool1"
+            android:id="@+id/theme_party_use_imageButton"
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
 

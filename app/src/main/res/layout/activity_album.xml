@@ -25,7 +25,7 @@
 
     <Button
         android:id="@+id/album_add_to_match_button"
-        android:text="增加"
+        android:text="新增"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -38,11 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginRight="30dp"
         android:layout_toLeftOf="@+id/view"
         android:layout_toStartOf="@+id/view"
         android:layout_weight="1"
-        android:background="@drawable/add_icon1"
+        android:background="@drawable/add6"
         android:scaleType="fitXY" />
 
     <ImageButton
@@ -55,7 +55,7 @@
         android:layout_toEndOf="@+id/view"
         android:layout_toRightOf="@+id/view"
         android:layout_weight="1"
-        android:background="@drawable/trash_icon2"
+        android:background="@drawable/trash1"
         android:scaleType="fitCenter" />
 
 
