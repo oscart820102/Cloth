@@ -4,11 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -38,10 +35,10 @@ public class Match extends Activity {
     private RecyclerView pantRecylcerView;
     private RecyclerView shoeRecylcerView;
     private ImageButton hatAddImageButton, clothAddImageButton, pantAddImageButton, shoeAddImageButton;
-    private recycleGalleryAdapter shoeAdapter;
-    private recycleGalleryAdapter pantAdapter;
-    private recycleGalleryAdapter clothAdapter;
-    private recycleGalleryAdapter hatAdapter;
+    private recycleGalleryShoeAdapter shoeAdapter;
+    private recycleGalleryPantAdapter pantAdapter;
+    private recycleGalleryClothAdapter clothAdapter;
+    private recycleGalleryHatAdapter hatAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,25 +48,30 @@ public class Match extends Activity {
         layout.setBackgroundResource(new getPref().getThemeMatchResID(this));
 
 
+
         hatRecylcerView = (RecyclerView) findViewById(R.id.hat_recycler_view);
-        hatRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        hatAdapter = new recycleGalleryAdapter(this, hatImageList);
+        hatRecylcerView.setLayoutManager(new ScrollZoomLayoutManager(this,Dp2px(10)));
+        hatAdapter = new recycleGalleryHatAdapter(this, hatImageList);
         hatRecylcerView.setAdapter(hatAdapter);
+        hatRecylcerView.addOnScrollListener(new CenterScrollListener());
 
         clothRecylcerView = (RecyclerView) findViewById(R.id.cloth_recycler_view);
-        clothRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        clothAdapter = new recycleGalleryAdapter(this, clothImageList);
+        clothRecylcerView.setLayoutManager(new ScrollZoomLayoutManager(this,Dp2px(10)));
+        clothAdapter = new recycleGalleryClothAdapter(this, clothImageList);
         clothRecylcerView.setAdapter(clothAdapter);
+        clothRecylcerView.addOnScrollListener(new CenterScrollListener());
 
         pantRecylcerView = (RecyclerView) findViewById(R.id.pant_recycler_view);
-        pantRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        pantAdapter = new recycleGalleryAdapter(this, pantImageList);
+        pantRecylcerView.setLayoutManager(new ScrollZoomLayoutManager(this,Dp2px(10)));
+        pantAdapter = new recycleGalleryPantAdapter(this, pantImageList);
         pantRecylcerView.setAdapter(pantAdapter);
+        pantRecylcerView.addOnScrollListener(new CenterScrollListener());
 
         shoeRecylcerView = (RecyclerView) findViewById(R.id.shoe_recycler_view);
-        shoeRecylcerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        shoeAdapter = new recycleGalleryAdapter(this, shoeImageList);
+        shoeRecylcerView.setLayoutManager(new ScrollZoomLayoutManager(this,Dp2px(10)));
+        shoeAdapter = new recycleGalleryShoeAdapter(this, shoeImageList);
         shoeRecylcerView.setAdapter(shoeAdapter);
+        shoeRecylcerView.addOnScrollListener(new CenterScrollListener());
 
         hatAddImageButton = (ImageButton) findViewById(R.id.match_hat_add_image_button);
         clothAddImageButton = (ImageButton) findViewById(R.id.match_cloth_add_image_button);
@@ -174,6 +176,7 @@ public class Match extends Activity {
         clothImageList.clear();
         pantImageList.clear();
         shoeImageList.clear();
+
         for (CustomImage mi : daOdb.getImages()) {
             if (mi.getIsMatch() == 1) {
                 if (mi.getCategory().name().equals("HAT"))
@@ -193,5 +196,33 @@ public class Match extends Activity {
         shoeAdapter.notifyDataSetChanged();
 
         daOdb.close();
+    }
+//
+//    private RecyclerView.OnScrollListener highlightScrollListener(final recycleGalleryHatAdapter recycleGalleryHatAdapter) {
+//        return new RecyclerView.OnScrollListener() {
+//            int middleItem;
+//
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                if (newState == recyclerView.SCROLL_STATE_IDLE) {
+////                    recyclerView.smoothScrollToPosition(0);
+//                }
+//            }
+//
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+//                middleItem = (linearLayoutManager.findFirstVisibleItemPosition() + linearLayoutManager.findLastVisibleItemPosition()) / 2;
+//                System.out.println(">>>first " + linearLayoutManager.findFirstVisibleItemPosition());
+//                System.out.println(">>>last " + linearLayoutManager.findLastVisibleItemPosition());
+//                recycleGalleryHatAdapter.setItemSelected(middleItem);
+//            }
+//        };
+//    }
+
+    public int Dp2px(float dp) {
+        final float scale = getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
     }
 }
