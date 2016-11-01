@@ -12,7 +12,7 @@ import android.widget.ImageView;
 class galleryAdapter2 extends BaseAdapter {
     Context mContext;
     private int selectItem;
-    private int drawable1[]=new int[] {R.mipmap.c1,R.mipmap.c2,R.mipmap.c3};
+    private int drawable1[]=new int[] {R.mipmap.c111,R.mipmap.c22,R.mipmap.c33};
     public galleryAdapter2(Context mContext){
         this.mContext=mContext;
     }

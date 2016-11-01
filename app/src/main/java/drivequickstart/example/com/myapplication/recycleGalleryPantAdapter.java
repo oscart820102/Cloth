@@ -35,19 +35,19 @@ public class recycleGalleryPantAdapter extends RecyclerView.Adapter<recycleGalle
     public void onBindViewHolder(galleryViewHolder holder, int position) {
 
         if(position==0){
-            Glide.with(context).load(R.drawable.p1)
+            Glide.with(context).load(R.drawable.p11)
                     .asBitmap()
                     .placeholder(R.drawable.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(holder.imageView);
         }else if(position==1){
-            Glide.with(context).load(R.drawable.p2)
+            Glide.with(context).load(R.drawable.p22)
                     .asBitmap()
                     .placeholder(R.drawable.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(holder.imageView);
         }else if(position==2){
-            Glide.with(context).load(R.drawable.p3)
+            Glide.with(context).load(R.drawable.p33)
                     .asBitmap()
                     .placeholder(R.drawable.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)

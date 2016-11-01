@@ -33,7 +33,7 @@ public class ThemePreferenceActivity extends Activity {
         chooseOutdoorImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setPrefeBackground(R.drawable.theme_outdoor_main, R.drawable.theme_outdoor_browse, R.drawable.theme_outdoor_match);
+                setPrefeBackground(R.drawable.theme_outdoor_main, R.drawable.theme_outdoor_browse, R.drawable.theme_outdoor_match, R.drawable.theme_outdoor_ablum);
                 layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
@@ -41,7 +41,7 @@ public class ThemePreferenceActivity extends Activity {
         chooseCoffeeImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setPrefeBackground(R.drawable.theme_coffee_main, R.drawable.theme_coffee_browse, R.drawable.theme_coffee_match);
+                setPrefeBackground(R.drawable.theme_coffee_main, R.drawable.theme_coffee_browse, R.drawable.theme_coffee_match, R.drawable.theme_coffee_ablum);
                 layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
@@ -49,14 +49,14 @@ public class ThemePreferenceActivity extends Activity {
         choosePartyImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setPrefeBackground(R.drawable.theme_party_main, R.drawable.theme_party_browse, R.drawable.theme_party_match);
+                setPrefeBackground(R.drawable.theme_party_main, R.drawable.theme_party_browse, R.drawable.theme_party_match, R.drawable.theme_party_ablum);
                 layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
         chooseBeachImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setPrefeBackground(R.drawable.theme_beach_main, R.drawable.theme_beach_browse, R.drawable.theme_beach_match);
+                setPrefeBackground(R.drawable.theme_beach_main, R.drawable.theme_beach_browse, R.drawable.theme_beach_match, R.drawable.theme_beach_ablum);
                 layout.setBackgroundResource(new getPref().getThemeBrowseResID(ThemePreferenceActivity.this));
             }
         });
@@ -68,11 +68,12 @@ public class ThemePreferenceActivity extends Activity {
         layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
     }
 
-    private void setPrefeBackground(int mainBackgroundID, int browseBackgroundID, int matchBackgroundID){
+    private void setPrefeBackground(int mainBackgroundID, int browseBackgroundID, int matchBackgroundID, int albumBackgroundID){
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         settings.edit().putInt(Strings.MAIN_SCREEN,mainBackgroundID).commit();
         settings.edit().putInt(Strings.BROWSE_SCREEN,browseBackgroundID).commit();
         settings.edit().putInt(Strings.MATCH_SCREEN,matchBackgroundID).commit();
+        settings.edit().putInt(Strings.ALBUM_SCREEN,albumBackgroundID).commit();
     }
 
 }

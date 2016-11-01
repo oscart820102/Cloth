@@ -35,19 +35,19 @@ public class recycleGalleryClothAdapter extends RecyclerView.Adapter<recycleGall
     public void onBindViewHolder(galleryViewHolder holder, int position) {
 
         if(position==0){
-                        Glide.with(context).load(R.drawable.c1)
+                        Glide.with(context).load(R.drawable.c111)
                     .asBitmap()
                     .placeholder(R.drawable.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(holder.imageView);
         }else if(position==1){
-                        Glide.with(context).load(R.drawable.c2)
+                        Glide.with(context).load(R.drawable.c22)
                     .asBitmap()
                     .placeholder(R.drawable.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(holder.imageView);
         }else if(position==2){
-                        Glide.with(context).load(R.drawable.c3)
+                        Glide.with(context).load(R.drawable.c33)
                     .asBitmap()
                     .placeholder(R.drawable.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)

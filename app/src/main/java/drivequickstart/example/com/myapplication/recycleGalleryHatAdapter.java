@@ -35,7 +35,7 @@ public class recycleGalleryHatAdapter extends RecyclerView.Adapter<recycleGaller
     public void onBindViewHolder(galleryViewHolder holder, int position) {
 
         if (position == 0) {
-            Glide.with(context).load(R.drawable.h1)
+            Glide.with(context).load(R.drawable.x11)
                     .asBitmap()
                     .placeholder(R.drawable.ic_launcher)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)

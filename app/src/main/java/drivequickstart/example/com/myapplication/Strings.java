@@ -8,5 +8,6 @@ public class Strings {
     public final static String MAIN_SCREEN = "MAIN_SCREEN";
     public final static String MATCH_SCREEN = "MATCH_SCREEN";
     public final static String BROWSE_SCREEN = "BROWSE_SCREEN";
+    public final static String ALBUM_SCREEN = "ALBUM_SCREEN";
 
 }

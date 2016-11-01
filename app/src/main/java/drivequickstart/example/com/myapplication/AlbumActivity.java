@@ -54,7 +54,7 @@ public class AlbumActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         layout = (RelativeLayout) findViewById(R.id.activity_album_layout);
-        layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
+        layout.setBackgroundResource(new getPref().getThemeAlbumResID(this));
 
         categoryString = getIntent().getStringExtra(Constant.INTENT_CATEGORY);
 
@@ -297,5 +297,10 @@ public class AlbumActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         daOdb.close();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

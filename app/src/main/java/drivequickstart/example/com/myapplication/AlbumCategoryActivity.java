@@ -25,7 +25,7 @@ public class AlbumCategoryActivity extends AppCompatActivity {
         pantLayout = (LinearLayout) findViewById(R.id.album_category_pant_layout);
         shoeLayout = (LinearLayout) findViewById(R.id.album_category_shoe_layout);
 
-        layout.setBackgroundResource(new getPref().getThemeBrowseResID(this));
+        layout.setBackgroundResource(new getPref().getThemeAlbumResID(this));
 
         hatLayout.setOnClickListener(new View.OnClickListener() {
             @Override

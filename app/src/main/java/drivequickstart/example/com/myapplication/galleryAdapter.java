@@ -17,7 +17,7 @@ class galleryAdapter extends BaseAdapter {
     Context mContext;
     private int selectItem;
     private ArrayList<CustomImage> customImages;
-    private int drawable1[] = new int[]{R.mipmap.h1, R.mipmap.h2};
+    private int drawable1[] = new int[]{R.mipmap.x11, R.mipmap.h2};
     private List<Bitmap> bitmap= new ArrayList<>();
 
     public galleryAdapter(Context mContext, ArrayList<CustomImage> customImages) {

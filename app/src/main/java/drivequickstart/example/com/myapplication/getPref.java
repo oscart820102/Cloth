@@ -24,4 +24,9 @@ public final class getPref {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
         return settings.getInt(Strings.MATCH_SCREEN,R.drawable.theme_outdoor_match);
     }
+
+    public int getThemeAlbumResID(Context context){
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        return settings.getInt(Strings.ALBUM_SCREEN,R.drawable.theme_outdoor_ablum);
+    }
 }
